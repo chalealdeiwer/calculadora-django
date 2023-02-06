@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <!--<link rel="stylesheet" href="style.css">-->
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            background-color: rgb(100, 206, 141);
+        
+        }
+        .body-calculador{
+            width: 384px;
+            height: 600px;
+            overflow: hidden;
+            background-color: white;
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            border-radius:  12px;
+        
+        }
+        #resultado{
+            width: 384px;
+            height: 96px;
+            outline: 0;
+            border: 0;
+            padding: 0px 20px 0px 20px;
+            font-size: 24px;
+        }
+        .num-container{
+            width: 100%;
+            height: 96px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 28px;
+            font-size: 24px;
+            font-weight: bold;
+            background-color: gray;
+        
+        }
+        .num-container-2{
+            width: 100%;
+            height: 128px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding: 0px 20px 0px 20px;
+            background-color: gray;
+        }
+        .s-button{
+            width: 64px;
+            height: 64px;
+            background-color: rgb(255, 255,255);
+            border-radius: 50px;
+            font-size: 24px;
+            font-weight: bold;
+            border: 0;
+            cursor: pointer;
+        }
+        .s-button-2{
+            width: 144px;
+            height: 64px;
+            border-radius: 50px;
+            font-size: 24px;
+            font-weight: bold;
+            background-color: rgb(146, 212, 54);
+            cursor: pointer;
+        }
+        .s-button-3{
+            width: 64px;
+            height: 64px;
+            background-color: rgb(252, 1, 1);
+            border-radius: 50px;
+            font-size: 24px;
+            font-weight: bold;
+            border: 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="body-calculadora">
+        <div>
+            <input type="text" id="resultado" placeholder="0">
+        </div>
+        <div class="num-container">
+            <button class="s-button" onclick="numeros(7)">7</button>
+            <button class="s-button" onclick="numeros(8)">8</button>
+            <button class="s-button" onclick="numeros(9)">9</button>
+            <button class="s-button" onclick="numeros('+')">+</button>
+        </div>
+        <div class="num-container">
+            <button class="s-button" onclick="numeros(4)">4</button>
+            <button class="s-button" onclick="numeros(5)">5</button>
+            <button class="s-button" onclick="numeros(6)">6</button>
+            <button class="s-button" onclick="numeros('-')">-</button>
+        </div>
+        <div class="num-container">
+            <button class="s-button" onclick="numeros(1)">1</button>
+            <button class="s-button" onclick="numeros(2)">2</button>
+            <button class="s-button" onclick="numeros(3)">3</button>
+            <button class="s-button" onclick="numeros('/')">/</button>
+        </div>
+        <div class="num-container">
+            <button class="s-button-3" onclick="resetear()">C</button>
+            <button class="s-button" onclick="numeros(0)">0</button>
+            <button class="s-button" onclick="numeros('.')">.</button>
+            <button class="s-button" onclick="numeros('*')">x</button>
+        </div>
+        <div class="num-container-2">
+            <button class="s-button" onclick="numeros('<')"><</button>
+            <button class="s-button" onclick="numeros('>')">></button>
+            <button class="s-button-2" onclick="operation()">=</button>
+        </div>
+    </div>
+</body>
+<script >
+    function numeros(valor){
+        document.getElementById('resultado').value +=valor;
+    
+    }
+    function operation(){
+        var opera = document.getElementById('resultado').value;
+        if(opera==0){
+            document.getElementById('resultado').value = 'Sin operación';
+        } else{
+            document.getElementById('resultado').value = eval(opera);
+        }
+    }
+    
+    function resetear(){
+        document.getElementById('resultado').value = " ";
+    }
+</script>
+</html>
